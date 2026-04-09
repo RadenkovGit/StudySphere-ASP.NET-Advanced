@@ -1,0 +1,15 @@
+@model CourseCardViewModel
+<div class="col-md-6 col-xl-4 mb-4">
+    <div class="card h-100 shadow-sm">
+        <img src="@Model.ImageUrl" class="card-img-top course-image" alt="@Model.Title" />
+        <div class="card-body d-flex flex-column">
+            <span class="badge bg-primary align-self-start mb-2">@Model.Category</span>
+            <h5 class="card-title">@Model.Title</h5>
+            <p class="small text-muted mb-1">Instructor: @Model.InstructorName</p>
+            <p class="small text-muted">Starts: @Model.StartDate.ToString("dd MMM yyyy")</p>
+            <p class="card-text flex-grow-1">@Model.Description</p>
+            <p class="fw-semibold mb-3">Rating: @(Model.AverageRating == 0 ? "No reviews yet" : Model.AverageRating.ToString("F1"))</p>
+            <a asp-controller="Courses" asp-action="Details" asp-route-id="@Model.Id" class="btn btn-outline-dark">Details</a>
+        </div>
+    </div>
+</div>

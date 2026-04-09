@@ -1,0 +1,9 @@
+@{
+    ViewData["Title"] = "Server Error";
+}
+<div class="text-center py-5">
+    <h1 class="display-4">500</h1>
+    <p class="lead">Something went wrong while processing your request.</p>
+    <p class="text-muted">Path: @ViewData["Path"]</p>
+    <a class="btn btn-dark" asp-controller="Home" asp-action="Index">Back to home</a>
+</div>
