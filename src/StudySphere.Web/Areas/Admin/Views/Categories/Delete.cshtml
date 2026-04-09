@@ -1,0 +1,10 @@
+@{
+    ViewData["Title"] = "Delete Category";
+}
+<h1>Delete Category</h1>
+<div class="alert alert-warning">Categories with attached courses cannot be deleted.</div>
+<form asp-action="ConfirmDelete" method="post">
+    <input type="hidden" name="id" value="@ViewBag.CategoryId" />
+    <button class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+</form>

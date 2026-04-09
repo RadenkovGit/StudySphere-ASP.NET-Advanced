@@ -1,0 +1,12 @@
+@model AdminCategoryInputModel
+@{
+    ViewData["Title"] = "Create Category";
+}
+<h1>Create Category</h1>
+<form method="post" class="card card-body shadow-sm">
+    <partial name="_CategoryFormPartial" model="Model" />
+    <button class="btn btn-dark mt-3">Save</button>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

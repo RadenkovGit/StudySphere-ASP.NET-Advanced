@@ -1,0 +1,15 @@
+@model AdminDashboardViewModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+<h1 class="mb-4">Admin Dashboard</h1>
+<div class="row">
+    <div class="col-md-3 mb-3"><div class="card card-body"><h5>Courses</h5><p class="display-6">@Model.CoursesCount</p></div></div>
+    <div class="col-md-3 mb-3"><div class="card card-body"><h5>Users</h5><p class="display-6">@Model.UsersCount</p></div></div>
+    <div class="col-md-3 mb-3"><div class="card card-body"><h5>Reviews</h5><p class="display-6">@Model.ReviewsCount</p></div></div>
+    <div class="col-md-3 mb-3"><div class="card card-body"><h5>Tasks</h5><p class="display-6">@Model.TasksCount</p></div></div>
+</div>
+<div class="mt-4 d-flex gap-2">
+    <a asp-controller="Courses" asp-action="Index" class="btn btn-dark">Manage courses</a>
+    <a asp-controller="Categories" asp-action="Index" class="btn btn-outline-dark">Manage categories</a>
+</div>

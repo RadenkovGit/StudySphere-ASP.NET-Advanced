@@ -1,0 +1,13 @@
+@model AdminCategoryInputModel
+@{
+    ViewData["Title"] = "Edit Category";
+}
+<h1>Edit Category</h1>
+<form method="post" class="card card-body shadow-sm">
+    <input asp-for="Id" type="hidden" />
+    <partial name="_CategoryFormPartial" model="Model" />
+    <button class="btn btn-dark mt-3">Update</button>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
