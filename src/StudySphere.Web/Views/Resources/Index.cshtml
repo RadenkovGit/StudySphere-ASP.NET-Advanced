@@ -1,0 +1,30 @@
+@model ResourceIndexViewModel
+@{
+    ViewData["Title"] = "Resources";
+}
+<h1 class="mb-4">Resources</h1>
+<form method="get" class="row g-3 mb-4">
+    <div class="col-md-8">
+        <input name="searchTerm" value="@Model.SearchTerm" class="form-control" placeholder="Search resources" />
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-dark w-100">Search</button>
+    </div>
+</form>
+
+<div class="row">
+@foreach (var item in Model.PagedResources.Items)
+{
+    <div class="col-md-6 mb-3">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5>@item.Title</h5>
+                <p class="text-muted">@item.CourseTitle</p>
+                <p>@item.Summary</p>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-dark btn-sm">Details</a>
+            </div>
+        </div>
+    </div>
+}
+</div>
+<partial name="_PaginationPartial" model="Model.PagedResources" />
