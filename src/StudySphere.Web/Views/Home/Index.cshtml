@@ -1,0 +1,24 @@
+@model CourseIndexViewModel
+@{
+    ViewData["Title"] = "Home";
+}
+<section class="p-5 mb-4 bg-light rounded-3 shadow-sm">
+    <div class="container-fluid py-3">
+        <h1 class="display-5 fw-bold">StudySphere</h1>
+        <p class="col-md-8 fs-5">A learning planner built with ASP.NET Core MVC, Identity, EF Core, services and admin area support.</p>
+        <a class="btn btn-dark btn-lg" asp-controller="Courses" asp-action="Index">Explore courses</a>
+    </div>
+</section>
+
+<section>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Upcoming courses</h2>
+        <a asp-controller="Courses" asp-action="Index" class="btn btn-outline-secondary">View all</a>
+    </div>
+    <div class="row">
+        @foreach (var course in Model.PagedCourses.Items.Take(3))
+        {
+            <partial name="_CourseCardPartial" model="course" />
+        }
+    </div>
+</section>

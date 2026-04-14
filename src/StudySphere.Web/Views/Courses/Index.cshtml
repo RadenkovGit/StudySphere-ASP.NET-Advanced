@@ -1,0 +1,38 @@
+@model CourseIndexViewModel
+@{
+    ViewData["Title"] = "Courses";
+}
+<h1 class="mb-4">Courses</h1>
+<form method="get" class="row g-3 mb-4">
+    <div class="col-md-5">
+        <input name="searchTerm" value="@Model.SearchTerm" class="form-control" placeholder="Search by title or description" />
+    </div>
+    <div class="col-md-4">
+        <select name="categoryId" class="form-select">
+            <option value="">All categories</option>
+            @foreach (var category in Model.Categories)
+            {
+                @if (Model.CategoryId == category.Id)
+                {
+                    <option value="@category.Id" selected>@category.Name</option>
+                }
+                else
+                {
+                    <option value="@category.Id">@category.Name</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="col-md-3">
+        <button class="btn btn-dark w-100">Filter</button>
+    </div>
+</form>
+
+<div class="row">
+    @foreach (var course in Model.PagedCourses.Items)
+    {
+        <partial name="_CourseCardPartial" model="course" />
+    }
+</div>
+
+<partial name="_PaginationPartial" model="Model.PagedCourses" />
