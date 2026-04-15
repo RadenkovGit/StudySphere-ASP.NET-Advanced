@@ -1,0 +1,52 @@
+@model TaskIndexViewModel
+@{
+    ViewData["Title"] = "My Tasks";
+}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>My Tasks</h1>
+    <a asp-action="Create" class="btn btn-dark">Create Task</a>
+</div>
+
+<form method="get" class="row g-3 mb-4">
+    <div class="col-md-6">
+        <input name="searchTerm" value="@Model.SearchTerm" class="form-control" placeholder="Search tasks" />
+    </div>
+    <div class="col-md-3 form-check mt-2 ms-3">
+        @if (Model.ShowCompleted)
+        {
+            <input name="showCompleted" value="true" checked class="form-check-input" type="checkbox" id="showCompleted" />
+        }
+        else
+        {
+            <input name="showCompleted" value="true" class="form-check-input" type="checkbox" id="showCompleted" />
+        }
+        <label class="form-check-label" for="showCompleted">Show completed</label>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-outline-dark">Apply</button>
+    </div>
+</form>
+
+@foreach (var task in Model.PagedTasks.Items)
+{
+    <div class="card mb-3 shadow-sm @(task.IsCompleted ? "border-success" : "")">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start">
+                <div>
+                    <h5>@task.Title</h5>
+                    <p class="mb-1">@task.Description</p>
+                    <small class="text-muted">Due: @task.DueDate.ToString("dd MMM yyyy") • Priority: @task.Priority</small>
+                </div>
+                <div class="d-flex gap-2">
+                    <form asp-action="Toggle" method="post">
+                        <input type="hidden" name="id" value="@task.Id" />
+                        <button class="btn btn-sm btn-outline-success">Toggle</button>
+                    </form>
+                    <a asp-action="Edit" asp-route-id="@task.Id" class="btn btn-sm btn-outline-primary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@task.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<partial name="_PaginationPartial" model="Model.PagedTasks" />

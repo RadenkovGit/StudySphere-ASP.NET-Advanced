@@ -1,0 +1,13 @@
+@model TaskInputModel
+@{
+    ViewData["Title"] = "Edit Task";
+}
+<h1>Edit Task</h1>
+<form method="post" class="card card-body shadow-sm">
+    <input type="hidden" name="id" value="@(ViewContext.RouteData.Values["id"])" />
+    <partial name="_TaskFormPartial" model="Model" />
+    <button class="btn btn-dark mt-3">Update</button>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

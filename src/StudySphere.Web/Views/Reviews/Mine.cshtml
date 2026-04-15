@@ -1,0 +1,22 @@
+@model IEnumerable<ReviewListItemViewModel>
+@{
+    ViewData["Title"] = "My Reviews";
+}
+<h1 class="mb-4">My Reviews</h1>
+@foreach (var review in Model)
+{
+    <div class="card mb-3 shadow-sm">
+        <div class="card-body">
+            <div class="d-flex justify-content-between">
+                <h5>@review.Author</h5>
+                <span class="badge bg-secondary">@review.Rating / 5</span>
+            </div>
+            <p class="mb-2">@review.Comment</p>
+            <small class="text-muted">@review.CreatedOn.ToString("dd MMM yyyy")</small>
+            <div class="mt-3">
+                <a asp-action="Edit" asp-route-id="@review.Id" class="btn btn-sm btn-outline-primary">Edit</a>
+                <a asp-action="Delete" asp-route-id="@review.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+}
