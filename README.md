@@ -124,8 +124,20 @@ On application startup, the seeder ensures:
 2. Restore NuGet packages.
 3. Make sure LocalDB / SQL Server is available.
 4. Verify the connection string in `src/StudySphere.Web/appsettings.json`.
-5. Run the web project.
-6. On first startup, the database is created and seeded automatically.
+5. Build the solution.
+6. Run the web project.
+7. On first startup, the database is created and seeded automatically.
+8. Log in with the seeded administrator account if you want to test the admin area.
+9. Optionally run the automated tests with `dotnet test` or Test Explorer.
+
+## Default administrator access
+
+After the initial database seeding, the application provides a default administrator account:
+
+- email: `admin@studysphere.local`
+- password: `Admin123!`
+
+This account can be used to open the admin dashboard and manage categories and courses.
 
 ## Testing
 
