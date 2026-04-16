@@ -5,24 +5,30 @@ The project is designed to satisfy the typical requirements of an **ASP.NET Adva
 
 ## Project idea
 
-The application helps students browse programming courses, enroll in them, open curated learning resources, manage personal study tasks and leave course reviews.  
-Administrators can manage categories and courses from a separate area.
+StudySphere is a lightweight learning planner focused on programming education.
+It combines a course catalog, curated learning resources, personal study task tracking and course feedback in one web application.
+
+The main goal of the platform is to help users organize self-paced learning in a structured way:
+browse courses, inspect lessons and resources, enroll, track personal study work and evaluate course quality through reviews.
+Administrators can maintain the catalog through a dedicated administration area.
 
 ## Main features
 
 - ASP.NET Core MVC application with Razor views
 - SQL Server database with Entity Framework Core
 - ASP.NET Identity with **User** and **Administrator** roles
-- Admin area for course and category management
-- Course catalog with search and filtering
-- Course details with lessons, resources and reviews
-- Personal study task manager (CRUD + toggle completion)
-- Resource catalog with pagination and search
-- Custom 404 and 500 pages
+- Separate admin area for course and category management
+- Course catalog with filtering by category and keyword search
+- Course details page with lessons, linked resources and reviews
+- Enrollment workflow for authenticated users
+- Personal study task manager with create, edit, delete and completion toggle
+- Resource catalog with search and pagination
+- Review management for authenticated users
+- Custom 404 and 500 error pages
 - Anti-forgery protection, server-side validation and encoded Razor output
-- Dependency Injection and service layer abstraction
-- Seeded initial data and default administrator
-- Unit tests for the core services
+- Dependency Injection with service contracts and implementations
+- Seeded initial data and default administrator account
+- Unit tests for core service logic
 
 ## Architecture
 
