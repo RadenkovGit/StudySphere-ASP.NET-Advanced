@@ -37,11 +37,12 @@ The solution contains two projects:
 - `src/StudySphere.Web` – main MVC application
 - `tests/StudySphere.Tests` – xUnit unit tests
 
-The web project is organized in these layers:
+The web project follows a layered structure:
 
 - **Data**
   - `ApplicationDbContext`
   - entity models
+  - EF Core persistence
 - **Services**
   - business logic behind controllers
   - contracts separated in `Services/Contracts`
@@ -49,10 +50,24 @@ The web project is organized in these layers:
   - user-facing MVC controllers
   - admin controllers under `Areas/Admin`
 - **Models**
-  - input models and view models
+  - input models and view models used by the UI
 - **Infrastructure / Extensions**
   - seeding
-  - claims extensions
+  - helper extensions for authenticated user access
+
+This structure keeps controllers lightweight and moves business rules into services, which also makes testing easier.
+
+## Service layer responsibilities
+
+The main services are responsible for:
+
+- retrieving and filtering course data
+- loading lesson and resource details
+- managing user reviews
+- managing personal study tasks
+- aggregating admin dashboard information
+
+This keeps the application closer to a clean separation between presentation logic and business logic.
 
 ## Entity models
 
@@ -145,4 +160,4 @@ Run the test project with:
 
 ```bash
 dotnet test
-```
+
