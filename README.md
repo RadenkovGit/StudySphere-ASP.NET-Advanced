@@ -144,6 +144,20 @@ On application startup, the seeder ensures:
 7. On first startup, the database is created and seeded automatically.
 8. Log in with the seeded administrator account if you want to test the admin area.
 9. Optionally run the automated tests with `dotnet test` or Test Explorer.
+10. If the seeded data does not appear, restart the application and verify the database connection again.
+11. For manual testing, use both a normal user flow and the seeded administrator account.
+
+## Deployment notes
+
+The project can be deployed to a standard .NET hosting environment such as Azure App Service or another ASP.NET Core compatible host.
+
+Before deployment, make sure that:
+
+- the production connection string is configured correctly
+- the target database server is reachable from the hosting environment
+- the required environment variables and secrets are configured
+- static files and Razor views are published correctly
+- the application starts successfully with the production configuration
 
 ## Default administrator access
 
