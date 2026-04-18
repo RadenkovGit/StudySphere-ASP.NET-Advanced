@@ -154,6 +154,16 @@ After the initial database seeding, the application provides a default administr
 
 This account can be used to open the admin dashboard and manage categories and courses.
 
+## Environment configuration notes
+
+Before running the application in a different environment, verify the following:
+
+- the connection string points to the correct SQL Server / LocalDB instance
+- the database user has sufficient permissions
+- the seeded administrator account is created successfully
+- the application can access static files and Razor views correctly
+- the database is initialized before testing the admin area
+
 ## Testing
 
 Run the test project with:
