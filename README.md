@@ -185,3 +185,14 @@ Run the test project with:
 ```bash
 dotnet test
 
+
+## Known limitations and future improvements
+
+The current project version is focused on the core requirements of the course assignment.
+Possible future improvements include:
+
+- richer user profile functionality
+- file uploads for course resources
+- more detailed analytics in the admin dashboard
+- improved review validation feedback in the UI
+- cloud deployment with a production database and environment-specific configuration
